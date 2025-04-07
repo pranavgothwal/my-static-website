@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Static Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whispers of Thought</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Hello, GitHub Pages!</h1>
-    <p>This is my first static website hosted on GitHub.</p>
+  <button id="theme-toggle">🌙</button>
+
+  <div class="quote-container">
+    <div class="quote active">“Simplicity is the ultimate sophistication.” – Leonardo da Vinci</div>
+    <div class="quote">“The quieter you become, the more you can hear.” – Ram Dass</div>
+    <div class="quote">“Elegance is not about being noticed, it’s about being remembered.” – Giorgio Armani</div>
+    <div class="quote">“The best way to predict the future is to create it.” – Peter Drucker</div>
+    <div class="quote">“In the middle of difficulty lies opportunity.” – Albert Einstein</div>
+  </div>
+
+  <script>
+    // Quote rotation logic
+    const quotes = document.querySelectorAll(".quote");
+    let index = 0;
+
+    setInterval(() => {
+      quotes[index].classList.remove("active");
+      index = (index + 1) % quotes.length;
+      quotes[index].classList.add("active");
+    }, 4000); // every 4 seconds
+
+    // Theme toggle logic
+    const toggleBtn = document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  </script>
 </body>
 </html>
