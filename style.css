@@ -88,6 +88,18 @@ body {
   font-size: 1.1rem;
   color: #555;
 }
+.quote-part {
+  font-size: 1.2rem;
+  white-space: pre-line;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.quote-author {
+  font-style: italic;
+  text-align: right;
+  margin-right: 1rem;
+}
 
 /* Button */
 .next-btn {
