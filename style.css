@@ -1,176 +1,97 @@
-/* General Styling */
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  font-family: 'Georgia', serif;
-  background: url('https://www.transparenttextures.com/patterns/wood-pattern.png') repeat;
-  background-color: #f5e8d3;
-  color: #222;
-  transition: background-color 0.5s, color 0.5s;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header */
-.header-panel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #d7b98e;
-  padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  flex-wrap: wrap;
-}
-
-.title {
-  font-size: 1.8rem;
-  color: #3a2f20;
-  margin: 0 auto;
-}
-
-.tab-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.tab {
-  font-weight: bold;
-  color: #3a2f20;
-  padding: 6px 14px;
-  border-radius: 6px;
-  background-color: transparent;
-  border: 2px solid #3a2f20;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.tab.active,
-.tab:hover {
-  background-color: #3a2f20;
-  color: #fff;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  font-size: 0.95rem;
-  padding: 6px 12px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 4px;
-  cursor: pointer;
-  border: none;
-  transition: background 0.3s;
-}
-
-.theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-/* Quote Box */
-.quote-box {
-  max-width: 800px;
-  margin: 60px auto;
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-
-.quote-line {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  white-space: pre-line;
-}
-
-.quote-author {
-  font-size: 1rem;
-  font-style: italic;
-  color: #555;
-  text-align: right;
-  margin-right: 1rem;
-}
-
-/* Button */
-.next-btn {
-  margin-top: 25px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #8b5e3c;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.next-btn:hover {
-  background-color: #a06a40;
-}
-
-/* Fade-in Animation */
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-/* Dark Theme */
 body.dark {
-  background-color: #1f1f1f;
+  background-color: #1e1e1e;
   color: #f0f0f0;
 }
 
-body.dark .header-panel {
-  background-color: #2e2e2e;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-body.dark .title {
-  color: #e0e0e0;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-body.dark .tab {
-  color: #ccc;
-  border-color: #ccc;
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-body.dark .tab.active,
-body.dark .tab:hover {
-  background-color: #ccc;
-  color: #222;
+#theme-toggle {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
 
-body.dark .theme-toggle {
-  background-color: #444;
+.tabs {
+  margin: 2rem 0;
+}
+
+.tabs button {
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ddd;
+  color: #000;
+  transition: background-color 0.3s;
+}
+
+.tabs button.active {
+  background-color: #007bff;
   color: #fff;
 }
 
-body.dark .theme-toggle:hover {
-  background-color: #555;
+.quote-box {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  min-height: 100px;
 }
 
-body.dark .quote-box {
-  background-color: rgba(40, 40, 40, 0.9);
+#quote-author {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 1rem;
 }
 
-body.dark .quote-author {
-  color: #aaa;
+.buttons button {
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-body.dark .next-btn {
-  background-color: #555;
+.buttons button:hover {
+  background-color: #218838;
 }
 
-body.dark .next-btn:hover {
-  background-color: #777;
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
