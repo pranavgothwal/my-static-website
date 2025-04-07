@@ -1,4 +1,3 @@
-// Quotes with author
 const quotes = [
   {
     text: "You can be discouraged by failure or you can learn from it. So go ahead and make mistakes.",
@@ -34,7 +33,6 @@ const quotes = [
   }
 ];
 
-// Shayaris without author
 const shayaris = [
   "Aankhon mein namii, chehre pe muskaan rehti hai...",
   "Khushi nahi toh gam ka pyala hi sahi...\nWoh nahi toh uska yaadon mein aana hi sahi...\nAgar kabhi baithe ho akele...\nAgar sath woh nahi toh uska saaya hi sahi!!!",
@@ -44,50 +42,49 @@ const shayaris = [
   "Kabhi socha na tha ke yeh pal bhi aayega,\ndil karega aur khamoshi chha jaayegi."
 ];
 
-let currentQuoteIndex = 0;
 let currentTab = "quotes";
+let currentIndex = 0;
 
 function showNextContent() {
   const quoteText = document.getElementById("quote-text");
+  const quoteAuthor = document.getElementById("quote-author");
 
   quoteText.classList.remove("fade-in");
-  void quoteText.offsetWidth; // Trigger reflow
+  quoteAuthor.classList.remove("fade-in");
+  void quoteText.offsetWidth; // Reflow
 
   if (currentTab === "quotes") {
-    const quote = quotes[currentQuoteIndex];
-    quoteText.innerHTML = `
-      <div class="quote-part">“${quote.text}”</div>
-      <div class="quote-author">${quote.author}</div>
-    `;
+    const quote = quotes[currentIndex];
+    quoteText.textContent = `“${quote.text}”`;
+    quoteAuthor.textContent = quote.author;
   } else {
-    const shayari = shayaris[currentQuoteIndex];
-    quoteText.innerHTML = `
-      <div class="quote-part">${shayari}</div>
-    `;
+    quoteText.textContent = shayaris[currentIndex];
+    quoteAuthor.textContent = "";
   }
 
   quoteText.classList.add("fade-in");
+  quoteAuthor.classList.add("fade-in");
 
-  currentQuoteIndex = (currentQuoteIndex + 1) % (currentTab === "quotes" ? quotes.length : shayaris.length);
-}
-
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-  const icon = document.getElementById("theme-icon");
-  icon.textContent = document.body.classList.contains("dark") ? "Icon (LIGHT)" : "Icon (DARK)";
+  currentIndex = (currentIndex + 1) % (currentTab === "quotes" ? quotes.length : shayaris.length);
 }
 
 function switchTab(tab) {
   currentTab = tab;
-  currentQuoteIndex = 0;
+  currentIndex = 0;
   showNextContent();
 
-  document.getElementById("quotes-tab").classList.remove("active-tab");
-  document.getElementById("shayaris-tab").classList.remove("active-tab");
-  document.getElementById(`${tab}-tab`).classList.add("active-tab");
+  document.getElementById("quotes-tab").classList.remove("active");
+  document.getElementById("shayaris-tab").classList.remove("active");
+  document.getElementById(`${tab}-tab`).classList.add("active");
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+  const themeBtn = document.getElementById("theme-toggle");
+  themeBtn.textContent = document.body.classList.contains("dark") ? "Theme: Dark" : "Theme: Light";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   showNextContent();
-  setInterval(showNextContent, 5000); // Auto change every 5s
+  setInterval(showNextContent, 7000); // Auto change every 7 seconds
 });
