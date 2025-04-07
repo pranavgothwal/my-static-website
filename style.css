@@ -1,7 +1,6 @@
-/* General Page Styling */
+/* General Styling */
 body {
   margin: 0;
-  padding: 0;
   font-family: 'Georgia', serif;
   background: url('https://www.transparenttextures.com/patterns/wood-pattern.png') repeat;
   background-color: #f5e8d3;
@@ -9,8 +8,8 @@ body {
   transition: background-color 0.5s, color 0.5s;
 }
 
-/* Header Panel with Tabs */
-.header {
+/* Header */
+.header-panel {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,48 +19,50 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  flex-wrap: wrap;
 }
 
-.header h1 {
-  margin: 0;
+.title {
   font-size: 1.8rem;
   color: #3a2f20;
+  margin: 0 auto;
 }
 
-.tabs {
+.tab-buttons {
   display: flex;
-  gap: 15px;
+  gap: 10px;
 }
 
 .tab {
-  cursor: pointer;
   font-weight: bold;
   color: #3a2f20;
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid #3a2f20;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.tab:hover,
-.tab.active {
-  background-color: #c7a97f;
+.tab.active,
+.tab:hover {
+  background-color: #3a2f20;
+  color: #fff;
 }
 
 /* Theme Toggle */
 .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
   padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
-  z-index: 5;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 /* Quote Box */
@@ -73,30 +74,19 @@ body {
   border-radius: 10px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
   text-align: center;
-  transition: background 0.3s;
 }
 
 .quote-line {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 1.6;
-  margin: 10px 0;
-}
-
-.author {
-  margin-top: 15px;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #555;
-}
-.quote-part {
-  font-size: 1.2rem;
+  margin-bottom: 1rem;
   white-space: pre-line;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
 }
 
 .quote-author {
+  font-size: 1rem;
   font-style: italic;
+  color: #555;
   text-align: right;
   margin-right: 1rem;
 }
@@ -141,29 +131,46 @@ body.dark {
   color: #f0f0f0;
 }
 
-body.dark .quote-box {
-  background-color: rgba(40, 40, 40, 0.9);
+body.dark .header-panel {
+  background-color: #2e2e2e;
 }
 
-body.dark .tab,
-body.dark .header h1 {
+body.dark .title {
   color: #e0e0e0;
+}
+
+body.dark .tab {
+  color: #ccc;
+  border-color: #ccc;
 }
 
 body.dark .tab.active,
 body.dark .tab:hover {
-  background-color: #3a3a3a;
+  background-color: #ccc;
+  color: #222;
 }
 
-body.dark .author {
-  color: #ccc;
-}
-
-body.dark .next-btn {
+body.dark .theme-toggle {
   background-color: #444;
   color: #fff;
 }
 
+body.dark .theme-toggle:hover {
+  background-color: #555;
+}
+
+body.dark .quote-box {
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+body.dark .quote-author {
+  color: #aaa;
+}
+
+body.dark .next-btn {
+  background-color: #555;
+}
+
 body.dark .next-btn:hover {
-  background-color: #666;
+  background-color: #777;
 }
