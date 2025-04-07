@@ -1,79 +1,83 @@
+const quoteText = document.getElementById("quote-text");
+const quoteAuthor = document.getElementById("quote-author");
+
 const quotes = [
   {
-    line1: "“Twenty years from now you will be more disappointed",
-    line2: "by the things that you didn’t do than by the ones you did do.",
-    author: "– Mark Twain"
-  },
-  {
-    line1: "“It always seems impossible",
-    line2: "until it is done.”",
-    author: "– Nelson Mandela"
-  },
-  {
-    line1: "“Elegance is not about being noticed,",
-    line2: "it’s about being remembered.”",
+    text: "“Elegance is not about being noticed, it’s about being remembered.”",
     author: "– Giorgio Armani"
   },
   {
-    line1: "“The best way to predict the future",
-    line2: "is to create it.”",
+    text: "“It always seems impossible until it is done.”",
+    author: "– Nelson Mandela"
+  },
+  {
+    text: "“The best way to predict the future is to create it.”",
     author: "– Peter Drucker"
+  }
+];
+
+const shayaris = [
+  {
+    text: "“Dil dhoondta hai phir wohi fursat ke raat din.”",
+    author: "– Ghalib"
   },
   {
-    line1: "“Great minds discuss ideas;",
-    line2: "average minds discuss events;", 
-    line3: "small minds discuss people.”",
-    author: "– Eleanor Roosevelt"
+    text: "“Tere bina zindagi se koi shikwa toh nahi.”",
+    author: "– Gulzar"
   },
   {
-    line1: "“Our greatest weakness lies in giving up.",
-    line2: "The most certain way to succeed is always to try just one more time.”",
-    author: "– Thomas Edison"
-  },
-  {
-    line1: "“Make mistakes.",
-    line2: "Make all you can.",
-    line3: "That’s where you will find success — on the other side of failure.”",
-    author: "– Thomas Watson"
-  },
-  {
-    line1: "“Persistence and determination alone",
-    line2: "are omnipotent.”",
-    author: "– Calvin Coolidge"
+    text: "“Kabhi kabhi mere dil mein khayal aata hai…”",
+    author: "– Sahir Ludhianvi"
   }
 ];
 
 let currentIndex = 0;
-
-const quoteLine1 = document.getElementById("quote-line-1");
-const quoteLine2 = document.getElementById("quote-line-2");
-const quoteAuthor = document.getElementById("quote-author");
+let currentTab = "quotes";
 
 function showNextQuote() {
-  quoteLine1.classList.remove("fade-in");
-  quoteLine2.classList.remove("fade-in");
-  quoteAuthor.classList.remove("fade-in");
-
-  void quoteLine1.offsetWidth; // Reflow
-  void quoteLine2.offsetWidth;
-  void quoteAuthor.offsetWidth;
-
-  quoteLine1.innerText = quotes[currentIndex].line1;
-  quoteLine2.innerText = quotes[currentIndex].line2;
-  quoteAuthor.innerText = quotes[currentIndex].author;
-
-  quoteLine1.classList.add("fade-in");
-  quoteLine2.classList.add("fade-in");
-  quoteAuthor.classList.add("fade-in");
-
-  currentIndex = (currentIndex + 1) % quotes.length;
+  const list = currentTab === "quotes" ? quotes : shayaris;
+  const quote = list[currentIndex];
+  quoteText.classList.remove("fade-in");
+  void quoteText.offsetWidth; // reflow
+  quoteText.textContent = quote.text;
+  quoteAuthor.textContent = quote.author;
+  quoteText.classList.add("fade-in");
+  currentIndex = (currentIndex + 1) % list.length;
 }
+
+function showQuotes() {
+  currentTab = "quotes";
+  currentIndex = 0;
+  setActiveTab("Quotes");
+  showNextQuote();
+}
+
+function showShayaris() {
+  currentTab = "shayaris";
+  currentIndex = 0;
+  setActiveTab("Shayaris");
+  showNextQuote();
+}
+
+function setActiveTab(tabName) {
+  document.querySelectorAll(".tab-button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+  document.querySelector(`.tab-button:contains('${tabName}')`)?.classList.add("active");
+}
+
+// Custom contains selector workaround
+document.querySelectorAll(".tab-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
 
 function toggleTheme() {
   document.body.classList.toggle("dark");
   const icon = document.getElementById("theme-icon");
-  icon.textContent = document.body.classList.contains("dark") ? "☀️ (LIGHT)" : "🌙 (DARK)";
+  icon.textContent = document.body.classList.contains("dark") ? "Icon (DARK)" : "Icon (LIGHT)";
 }
 
-setInterval(showNextQuote, 6000);
-showNextQuote();
+showQuotes(); // Default on load
