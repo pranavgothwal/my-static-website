@@ -34,12 +34,12 @@ const quotes = [
 ];
 
 const shayaris = [
-  "Aankhon mein namii, chehre pe muskaan rehti hai...",
-  "Khushi nahi toh gam ka pyala hi sahi...\nWoh nahi toh uska yaadon mein aana hi sahi...\nAgar kabhi baithe ho akele...\nAgar sath woh nahi toh uska saaya hi sahi!!!",
+  "Khushi nahi toh gam ka pyala hi sahi...\nWoh nahi toh uska yaadon mein aana hi sahi...\nAgar kabhi baithe ho akele, \nAgar sath woh nahi toh uska saaya hi sahi!!!",
   "Main akela hi chala tha janib-e-manzil magar,\nlog saath aate gaye aur karvan banta gaya.",
   "Woh baat saari jise hum chhupaye baithe hain,\nwoh teri aankhon ne sab kuch bata diya.",
   "Kya likhun uske baare mein,\njo lafzon mein kabhi bayan na ho.",
   "Kabhi socha na tha ke yeh pal bhi aayega,\ndil karega aur khamoshi chha jaayegi."
+  "Humein seene se lagakar humari saari kasak door kar do,\nHum sirf tumhare ho jaayein, humein itna majborr kar do."
 ];
 
 let currentTab = "quotes";
