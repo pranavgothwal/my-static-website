@@ -2,38 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Whispers of Thought</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <button id="theme-toggle">🌙</button>
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <span id="theme-icon">🌙</span>
+  </div>
 
-  <div class="quote-container">
-    <div class="quote active">“Simplicity is the ultimate sophistication.” – Leonardo da Vinci</div>
-    <div class="quote">“The quieter you become, the more you can hear.” – Ram Dass</div>
-    <div class="quote">“Elegance is not about being noticed, it’s about being remembered.” – Giorgio Armani</div>
-    <div class="quote">“The best way to predict the future is to create it.” – Peter Drucker</div>
-    <div class="quote">“In the middle of difficulty lies opportunity.” – Albert Einstein</div>
+  <div class="quote-box">
+    <p id="quote-text"></p>
   </div>
 
   <script>
-    // Quote rotation logic
-    const quotes = document.querySelectorAll(".quote");
-    let index = 0;
+    const quotes = [
+      "“You can be discouraged by failure or you can learn from it. So go ahead and make mistakes. Make all you can because that’s where you will find success, on the other side of failure.” – Thomas Watson",
+      "“It always seems impossible until it is done.” – Nelson Mandela",
+      "“Elegance is not about being noticed, it’s about being remembered.” – Giorgio Armani",
+      "“The best way to predict the future is to create it.” – Peter Drucker",
+      "“Great minds discuss ideas; average minds discuss events; small minds discuss people.” – Eleanor Roosevelt",
+      "“Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.” – Mark Twain",
+      "“Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.” – Thomas A. Edison",
+      "“Nothing in this world can take the place of persistence. Talent will not; nothing is more common than unsuccessful men with talent. Genius will not; unrewarded genius is almost a proverb. Education will not; the world is full of educated derelicts. Persistence and determination alone are omnipotent.” – Calvin Coolidge"
+    ];
 
-    setInterval(() => {
-      quotes[index].classList.remove("active");
-      index = (index + 1) % quotes.length;
-      quotes[index].classList.add("active");
-    }, 4000); // every 4 seconds
+    let currentIndex = 0;
+    const quoteText = document.getElementById("quote-text");
 
-    // Theme toggle logic
-    const toggleBtn = document.getElementById("theme-toggle");
-    toggleBtn.addEventListener("click", () => {
+    function showNextQuote() {
+      quoteText.classList.remove("fade-in");
+      void quoteText.offsetWidth; // Trigger reflow to restart animation
+      quoteText.innerText = quotes[currentIndex];
+      quoteText.classList.add("fade-in");
+      currentIndex = (currentIndex + 1) % quotes.length;
+    }
+
+    setInterval(showNextQuote, 4000);
+    showNextQuote(); // Initial load
+
+    function toggleTheme() {
       document.body.classList.toggle("dark");
-      toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-    });
+      const icon = document.getElementById("theme-icon");
+      icon.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    }
   </script>
 </body>
 </html>
