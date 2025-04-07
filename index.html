@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Whispers of Thought</title>
+  <title>Quotes & Shayaris</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header-panel">
-    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">Theme: Light</button>
-    <h1 class="title">Whispers of Thought</h1>
-    <div class="tab-buttons">
-      <button id="quotes-tab" class="tab active" onclick="switchTab('quotes')">Quotes</button>
-      <button id="shayaris-tab" class="tab" onclick="switchTab('shayaris')">Shayaris</button>
+  <div class="container">
+    <div class="header">
+      <h1>Quotes & Shayaris</h1>
+      <button id="theme-toggle" onclick="toggleTheme()">Theme: Light</button>
     </div>
-  </header>
 
-  <main class="quote-box fade-in" id="quote-box">
-    <div id="quote-text" class="quote-line"></div>
-    <div id="quote-author" class="quote-author"></div>
-    <button class="next-btn" onclick="showNextContent()">Next</button>
-  </main>
+    <div class="tabs">
+      <button id="quotes-tab" class="active" onclick="switchTab('quotes')">Quotes</button>
+      <button id="shayaris-tab" onclick="switchTab('shayaris')">Shayaris</button>
+    </div>
+
+    <div class="quote-box">
+      <div id="quote-text" class="fade-in">Loading...</div>
+      <div id="quote-author" class="fade-in"></div>
+    </div>
+
+    <div class="buttons">
+      <button onclick="showNextContent()">Next</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
