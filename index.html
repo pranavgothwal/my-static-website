@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="header-panel">
-    <button id="theme-toggle" onclick="toggleTheme()">Icon (LIGHT)</button>
+  <header class="header-panel">
+    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">Theme: Light</button>
     <h1 class="title">Whispers of Thought</h1>
     <div class="tab-buttons">
-      <button onclick="switchTab('quotes')">Quotes</button>
-      <button onclick="switchTab('shayaris')">Shayaris</button>
+      <button id="quotes-tab" class="tab active" onclick="switchTab('quotes')">Quotes</button>
+      <button id="shayaris-tab" class="tab" onclick="switchTab('shayaris')">Shayaris</button>
     </div>
-  </div>
+  </header>
 
-  <div class="quote-box fade-in" id="quote-box">
+  <main class="quote-box fade-in" id="quote-box">
     <div id="quote-text" class="quote-line"></div>
-    <div id="quote-author" class="author"></div>
-    <button class="next-btn" onclick="showNext()">Next</button>
-  </div>
+    <div id="quote-author" class="quote-author"></div>
+    <button class="next-btn" onclick="showNextContent()">Next</button>
+  </main>
 
   <script src="script.js"></script>
 </body>
