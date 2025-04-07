@@ -40,9 +40,14 @@ body.dark .main-heading {
 
 .quote-box {
   max-width: 800px;
-  padding: 20px;
+  padding: 30px 40px;
   text-align: center;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.75); /* translucent white */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
 }
 
 .quote-line-1,
@@ -119,6 +124,10 @@ body.dark .theme-toggle:hover {
 
 body.dark .quote-author {
   color: #ccc;
+}
+
+body.dark .quote-box {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 body.dark .next-button {
