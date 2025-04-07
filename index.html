@@ -9,17 +9,18 @@
 <body>
   <div class="top-panel"></div>
 
+  <h1 class="main-heading">Whispers of Thought</h1>
+
   <div class="theme-toggle" onclick="toggleTheme()">
     <span id="theme-icon">🌙</span>
   </div>
 
   <div class="quote-box">
-    <blockquote id="quote-text">
-      <p class="quote-line-1"></p>
-      <p class="quote-line-2"></p>
-      <footer class="quote-author"></footer>
-    </blockquote>
-    <button id="next-btn" onclick="showNextQuote()">Next</button>
+    <div id="quote-line-1" class="quote-line-1"></div>
+    <div id="quote-line-2" class="quote-line-2"></div>
+    <div id="quote-author" class="quote-author"></div>
+
+    <button class="next-button" onclick="showNextQuote()">Next</button>
   </div>
 
   <script src="script.js"></script>
