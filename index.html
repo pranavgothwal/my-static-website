@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Whispers of Thought</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
 <body>
-  <div class="top-panel"></div>
-
-  <h1 class="main-heading">QUOTES FOR LIFE</h1>
-
   <div class="theme-toggle" onclick="toggleTheme()">
-    <span id="theme-icon">🌙 (DARK)</span>
+    <span id="theme-icon">Icon (LIGHT)</span>
+  </div>
+
+  <div class="top-bar">
+    <h1>Whispers of Thought</h1>
+    <div class="tabs">
+      <button class="tab-button active" onclick="showQuotes()">Quotes</button>
+      <button class="tab-button" onclick="showShayaris()">Shayaris</button>
+    </div>
   </div>
 
   <div class="quote-box">
-    <div id="quote-line-1" class="quote-line-1"></div>
-    <div id="quote-line-2" class="quote-line-2"></div>
-    <div id="quote-author" class="quote-author"></div>
-
-    <button class="next-button" onclick="showNextQuote()">Next</button>
+    <p id="quote-text"></p>
+    <p id="quote-author"></p>
+    <button class="next-btn" onclick="showNextQuote()">Next</button>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
